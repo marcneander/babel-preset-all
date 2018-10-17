@@ -1,0 +1,40 @@
+{
+  "name": "@marcneander/preset-all",
+  "version": "1.0.0",
+  "author": "Marc Neander <marcneander@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcneander/preset-all"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
+  "homepage": "https://marcneander.se",
+  "keywords": [
+    "babel",
+    "config",
+    "marcneander",
+    "javascript"
+  ],
+  "devDependencies": {
+    "@marcneander/eslint-config-base": "^1.0.0",
+    "eslint": "^5.7.0",
+    "prettier": "^1.14.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.19"
+  }
+}
