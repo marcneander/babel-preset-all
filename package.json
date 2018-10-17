@@ -1,11 +1,11 @@
 {
-  "name": "@marcneander/preset-all",
+  "name": "@marcneander/babel-preset-all",
   "version": "1.0.0",
   "author": "Marc Neander <marcneander@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcneander/preset-all"
+    "url": "https://github.com/marcneander/babel-preset-all"
   },
   "main": "index.js",
   "files": [
