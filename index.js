@@ -1,15 +1,15 @@
-import { declare } from '@babel/helper-plugin-utils';
-import presetEnv from '@babel/preset-env';
-import presetReact from '@babel/preset-react';
-import pluginProposalObjectRestSpread from '@babel/plugin-proposal-object-rest-spread';
-import pluginProposalThrowExpressions from '@babel/plugin-proposal-throw-expressions';
-import pluginProposalClassProperties from '@babel/plugin-proposal-class-properties';
-import pluginSyntaxDynamicImport from '@babel/plugin-syntax-dynamic-import';
-import pluginTransformReactConstantElements from '@babel/plugin-transform-react-constant-elements';
-import pluginTransformReactInlineElements from '@babel/plugin-transform-react-inline-elements';
-import pluginTransformReactRemovePropTypes from 'babel-plugin-transform-react-remove-prop-types';
+const { declare } = require('@babel/helper-plugin-utils');
+const presetEnv = require('@babel/preset-env');
+const presetReact = require('@babel/preset-react');
+const pluginProposalObjectRestSpread = require('@babel/plugin-proposal-object-rest-spread');
+const pluginProposalThrowExpressions = require('@babel/plugin-proposal-throw-expressions');
+const pluginProposalClassProperties = require('@babel/plugin-proposal-class-properties');
+const pluginSyntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import');
+const pluginTransformReactConstantElements = require('@babel/plugin-transform-react-constant-elements');
+const pluginTransformReactInlineElements = require('@babel/plugin-transform-react-inline-elements');
+const pluginTransformReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types');
 
-export default declare((api, options) => ({
+module.exports = declare((api, options) => ({
     presets: [
         [
             presetEnv,
