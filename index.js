@@ -14,10 +14,10 @@ module.exports = declare((api, options) => ({
         [
             presetEnv,
             {
-                modules: false,
+                ...(!api.env('test') ? { modules: false } : {}),
                 useBuiltIns: 'usage',
                 forceAllTransforms: api.env('production'),
-                ...(options.node ? { targets: { node: 'current' } } : {})
+                ...(options.node || api.env('test') ? { targets: { node: 'current' } } : {})
             }
         ],
         options.react && [
