@@ -24,13 +24,12 @@ module.exports = {
         [
             '@marcneander/preset-all',
             {
-                ...options
+                node: false,
+                react: true
             }
         ]
     ],
     ...
 }
 ```
-
-### Options
 
