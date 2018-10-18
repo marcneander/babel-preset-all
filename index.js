@@ -9,36 +9,50 @@ const pluginTransformReactConstantElements = require('@babel/plugin-transform-re
 const pluginTransformReactInlineElements = require('@babel/plugin-transform-react-inline-elements');
 const pluginTransformReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types');
 
-module.exports = declare((api, options) => ({
-    presets: [
-        [
-            presetEnv,
-            {
-                ...(!api.env('test') ? { modules: false } : {}),
-                useBuiltIns: 'usage',
-                forceAllTransforms: api.env('production'),
-                ...(options.node || api.env('test') ? { targets: { node: 'current' } } : {})
-            }
-        ],
-        options.react && [
-            presetReact,
-            {
-                development: !api.env('production')
-            }
-        ]
-    ].filter(Boolean),
-    plugins: [
-        // Proposal
-        pluginProposalObjectRestSpread,
-        pluginProposalThrowExpressions,
-        pluginProposalClassProperties,
+module.exports = declare((api, options) => {
+    const isTest = api.env('test');
+    const isProd = api.env('production');
 
-        // Syntax
-        pluginSyntaxDynamicImport,
+    if (
+        Object.prototype.hasOwnProperty.call(options, 'node') &&
+        Object.prototype.hasOwnProperty.call(options, 'react')
+    ) {
+        throw new Error("Options 'node' and 'react' is required. Please specify.");
+    }
 
-        // Transforms
-        api.env('production') && options.react && pluginTransformReactConstantElements,
-        api.env('production') && options.react && pluginTransformReactInlineElements,
-        api.env('production') && options.react && pluginTransformReactRemovePropTypes
-    ].filter(Boolean)
-}));
+    return {
+        presets: [
+            [
+                presetEnv,
+                {
+                    ...(!isTest ? { modules: false } : {}),
+                    useBuiltIns: 'usage',
+                    forceAllTransforms: api.env('production'),
+                    targets: {
+                        ...(options.node || isTest ? { node: 'current' } : {})
+                    }
+                }
+            ],
+            options.react && [
+                presetReact,
+                {
+                    development: !isProd
+                }
+            ]
+        ].filter(Boolean),
+        plugins: [
+            // Proposal
+            pluginProposalObjectRestSpread,
+            pluginProposalThrowExpressions,
+            pluginProposalClassProperties,
+
+            // Syntax
+            pluginSyntaxDynamicImport,
+
+            // Transforms
+            isProd && options.react && pluginTransformReactConstantElements,
+            isProd && options.react && pluginTransformReactInlineElements,
+            isProd && options.react && pluginTransformReactRemovePropTypes
+        ].filter(Boolean)
+    };
+});
