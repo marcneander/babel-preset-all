@@ -9,16 +9,17 @@ const pluginTransformReactConstantElements = require('@babel/plugin-transform-re
 const pluginTransformReactInlineElements = require('@babel/plugin-transform-react-inline-elements');
 const pluginTransformReactRemovePropTypes = require('babel-plugin-transform-react-remove-prop-types');
 
-module.exports = declare((api, options) => {
+module.exports = declare((api, opts) => {
     const isTest = api.env('test');
     const isProd = api.env('production');
 
-    if (
-        Object.prototype.hasOwnProperty.call(options, 'node') &&
-        Object.prototype.hasOwnProperty.call(options, 'react')
-    ) {
-        throw new Error("Options 'node' and 'react' is required. Please specify.");
-    }
+    const options = Object.assign(
+        {
+            react: true,
+            node: false
+        },
+        opts
+    );
 
     return {
         presets: [
