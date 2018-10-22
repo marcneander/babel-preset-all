@@ -26,9 +26,6 @@ module.exports = declare((api, opts) => {
             [
                 presetEnv,
                 {
-                    ...(!isTest ? { modules: false } : {}),
-                    useBuiltIns: 'usage',
-                    forceAllTransforms: api.env('production'),
                     ...(options.node || isTest ? { targets: { node: 'current' } } : {})
                 }
             ],
