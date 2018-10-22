@@ -29,9 +29,7 @@ module.exports = declare((api, opts) => {
                     ...(!isTest ? { modules: false } : {}),
                     useBuiltIns: 'usage',
                     forceAllTransforms: api.env('production'),
-                    targets: {
-                        ...(options.node || isTest ? { node: 'current' } : {})
-                    }
+                    ...(options.node || isTest ? { targets: { node: 'current' } } : {})
                 }
             ],
             options.react && [
