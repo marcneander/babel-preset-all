@@ -1,7 +1,7 @@
 <br />
 <p align="center">
-    <a href="https://marcneander.se">
-        <img src="https://raw.githubusercontent.com/marcneander/marcneander.se/master/src/images/m-dark.png" alt="Marc Neander logotype" width="151"></a>
+    <a href="https://marcneander.io">
+        <img src="https://raw.githubusercontent.com/marcneander/marcneander.io/master/src/images/m-dark.png" alt="Marc Neander logotype" width="151"></a>
 </p>
 <br />
 <p align="center">
@@ -21,13 +21,7 @@ Edit `babel.config.js`
 ```js
 module.exports = {
     presets: [
-        [
-            '@marcneander/all',
-            {
-                node: false,
-                react: true
-            }
-        ]
+        '@marcneander/all'
     ],
     ...
 }
