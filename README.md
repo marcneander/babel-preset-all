@@ -12,6 +12,9 @@
 </p>
 
 # babel-preset-all
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/marcneander/babel-preset-all.svg)](https://greenkeeper.io/)
+
 ## Install
 
 `yarn add --dev @marcneander/babel-preset-all`
